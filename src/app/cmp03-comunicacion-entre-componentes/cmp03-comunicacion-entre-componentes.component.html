@@ -1,0 +1,14 @@
+<h2>Comunicación entre componentes (@Input y @Output)</h2>
+
+<div [ngStyle]="styles">
+    <app-sugus color="blue" sabor="piña"></app-sugus>
+    <app-sugus color="orange" sabor="naranja"></app-sugus>
+    <app-sugus color="red" sabor="fresa"></app-sugus>
+    <app-sugus></app-sugus>
+</div>
+
+<div [ngStyle]="styles">
+    <app-form-cv [nombre]="nombre" [apellidos]="apellidos" [email]="email" (datoCambiado)="cambiarDato($event)">
+    </app-form-cv>
+    <app-preview-cv [nombre]="nombre" [apellidos]="apellidos" [email]="email"></app-preview-cv>
+</div>

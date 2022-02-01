@@ -1,0 +1,19 @@
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_module
+node_modules
+
+# IDE - VSCode
+.vscode/*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# e2e
+/e2e/*.js
+/e2e/*.maps
