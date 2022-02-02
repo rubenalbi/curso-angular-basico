@@ -2,13 +2,20 @@
 
 <h3>De atributo</h3>
 
-<p [ngClass]="{fondoNegro: true, letraNaranja: letraNaranjaActivada}">Un párrafo con la letra naranja y el fondo negro</p>
+<p [ngClass]="{fondoNegro: true, letraNaranja: letraNaranjaActivada}">Un párrafo con la letra naranja y el fondo negro
+</p>
 
 <button type="button" (click)="toggleLetraNaranja()">Ocultar letras</button>
 
 <p [ngStyle]="{color: colorSeleccionado}">El color de la letra va cambiando</p>
 
 <input type="color" [(ngModel)]="colorSeleccionado">
+
+
+<p appMarcar>Este texto se marca de amarillo</p>
+<p appMarcar="blue">Este texto se marca de azul</p>
+<p appMarcar="orange">Este texto se marca de naranja</p>
+
 
 
 <h3>Estructurales</h3>
