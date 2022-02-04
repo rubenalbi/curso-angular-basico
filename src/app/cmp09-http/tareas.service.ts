@@ -55,4 +55,19 @@ export class TareasService {
     );
   }
 
+  completeTareaPUT(tarea: Tarea): Observable<Tarea> {
+    return this.http.put<PatchResponse>(`${this.URL}/${tarea.id}.json`, {completada: !tarea.completada})
+    .pipe(
+      map((resp: PatchResponse) => {
+        tarea.completada = resp.completada
+        return tarea;
+      })
+    );
+  }
+
+  // TODO terminar delete tarea
+  // deleteTarea(tarea: Tarea): Observable<Tarea> {
+  //   return this.http.delete<PatchResponse>(`${this.URL}/${tarea.id}.json`, {completada: !tarea.completada});
+  // }
+
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MiPrimerComponenteComponent } from './mi-primer-componente/mi-primer-componente.component';
@@ -29,6 +29,7 @@ import { FechaActualComponent } from './cmp08-observables/fecha-actual/fecha-act
 import { SuscripcionComponent } from './cmp08-observables/suscripcion/suscripcion.component';
 import { Cmp09HttpComponent } from './cmp09-http/cmp09-http.component';
 import { TareaComponent } from './cmp09-http/tarea/tarea.component';
+import { AuthInterceptor } from './cmp09-http/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,11 @@ import { TareaComponent } from './cmp09-http/tarea/tarea.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    // {provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true},
+    // {provide: HTTP_INTERCEPTORS, useClass: LoQueSea, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
